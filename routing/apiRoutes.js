@@ -12,15 +12,15 @@ apiRouter.post("/api/friends", function(req, res) {
     var newFriendTotal = 0
     newFriend.scores.forEach(function(score) {
       newFriendTotal += parseInt(score)
-      // if (score.scores == "1 (Strongly Agree)") {
-      //   score.scores = 1;
-      // }
-      // else if (score.scores == "5 (Strongly Disagree)") {
-      //   score.scores = 5;
-      // }
-      // else {
-      //   score.scores = parseInt(score.scores);
-      // }
+      if (score.scores == "1 (Strongly Agree)") {
+        score.scores = 1;
+      }
+      else if (score.scores == "5 (Strongly Disagree)") {
+        score.scores = 5;
+      }
+      else {
+        score.scores = parseInt(score.scores);
+      }
     });
     console.log("new friend total", newFriendTotal)
     var bestMatch = {};
